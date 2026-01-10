@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/marketing-website/static/css/main.1606c316.css",
+    "main.js": "/marketing-website/static/js/main.cbb7efb3.js",
+    "static/js/453.da795d4b.chunk.js": "/marketing-website/static/js/453.da795d4b.chunk.js",
+    "index.html": "/marketing-website/index.html",
+    "main.1606c316.css.map": "/marketing-website/static/css/main.1606c316.css.map",
+    "main.cbb7efb3.js.map": "/marketing-website/static/js/main.cbb7efb3.js.map",
+    "453.da795d4b.chunk.js.map": "/marketing-website/static/js/453.da795d4b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1606c316.css",
+    "static/js/main.cbb7efb3.js"
+  ]
+}
