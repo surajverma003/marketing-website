@@ -15,8 +15,6 @@ const ContextState = ({ children }) => {
         }
     }, [dark]);
 
-
-
     return (
         <myContext.Provider value={{
             dark,

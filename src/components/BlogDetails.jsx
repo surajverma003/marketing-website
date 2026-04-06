@@ -8,7 +8,6 @@ const BlogDetails = () => {
                 <div className="max-w-screen-xl mx-auto">
                     <div className="heebo p-10 lg:p-28 bg-white text-xl text-slate-500">
                         <img src="https://websitedemos.net/digital-marketing-agency-04/wp-content/uploads/sites/865/2021/05/digital-marketing-agency-blog-post-img-3.jpg" alt="" />
-
                         <h1 className="text-2xl mt-5 font-semibold text-slate-500">What do aliquam sed fringilla</h1>
                         <p className="poppins text-[18px] mt-2">Leave a Comment / Digital Marketing / akbarh</p>
 
@@ -16,7 +15,6 @@ const BlogDetails = () => {
                             <p className="mt-5">Massa fringilla bibendum vitae in suspendisse tortor suspendisse est pretium risus pulvinar mauris facilisis egestas at eu odio semper lacinia pulvinar aenean tortor nunc scelerisque nulla ac nibh rhoncus pretium arcu risus.</p>
                             <p className="mt-5">Nunc enim in malesuada ultricies amet mi risus et malesuada volutpat fusce viverra rutrum justo, tincidunt nisi urna lectus et, dignissim leo id eros, amet, a, pretium elementum dictum adipiscing aenean interdum laoreet dolor elementum quis fringilla nunc ultricies consequat urna velit gravida egestas elit volutpat morbi consectetur.</p>
                         </div>
-
 
                         <div className="italic ps-10 border-s-4 border-gray-300">
                             <p className="mt-5">Libero dui quis ultrices morbi integer sagittis sapien lobortis ut tincidunt felis consectetur sagittis at mattis donec sed quis erat id nisl ut consequat.</p>

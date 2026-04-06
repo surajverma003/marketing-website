@@ -1,66 +1,148 @@
-import { Icon } from '@iconify/react/dist/iconify.js';
-import React, { useContext } from 'react';
-import myContext from '../context/myContext';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { Icon } from '@iconify/react/dist/iconify.js';
 
 const Footer = () => {
-    const context = useContext(myContext);
-    const { dark } = context;
+    const currentYear = new Date().getFullYear();
+
+    const services = [
+        { name: "SEO Services", link: "/seo-services" },
+        { name: "Digital Marketing", link: "/digital-marketing" },
+        { name: "Social Media", link: "/social-media" },
+        { name: "Branding", link: "/branding" },
+        { name: "PPC Advertising", link: "/digital-marketing" }
+    ];
+
+    const company = [
+        { name: "About Us", link: "/about" },
+        { name: "Our Team", link: "/about" },
+        { name: "Careers", link: "/contact" },
+        { name: "Blog", link: "/blog" },
+        { name: "Contact Us", link: "/contact" }
+    ];
+
+    const socials = [
+        { icon: "mdi:github", label: "Github", link: "#", color: "hover:bg-white hover:text-slate-900/80" },
+        { icon: "mdi:linkedin", label: "LinkedIn", link: "#", color: "hover:bg-blue-700" },
+        { icon: "mdi:youtube", label: "YouTube", link: "#", color: "hover:bg-red-600" },
+        { icon: "mdi:twitter", label: "Twitter", link: "#", color: "hover:bg-blue-500" },
+    ];
 
     return (
-        <footer className={`montserrat py-20 ${dark ? 'bg-slate-900' : 'bg-slate-100'}`}>
-            <div className="max-w-screen-xl mx-auto px-10">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-center items-start gap-7">
-                    <div className="flex justify-between flex-col gap-3 lg:gap-0 h-full text-center lg:text-start">
-                        <Link to="/"><img className={`w-40 mx-auto lg:mx-0 ${dark ? 'mix-blend-plus-lighter' : 'mix-blend-normal'}`} src={`${dark ? 'https://websitedemos.net/digital-marketing-agency-04/wp-content/uploads/sites/865/2021/06/site-logo-light-new.svg' : 'https://websitedemos.net/digital-marketing-agency-02/wp-content/uploads/sites/865/2021/06/site-logo-new.svg'}`} alt="" /></Link>
-                        <p className="">Volutpat commodo at dictum amet tincidunt facilisis id lorem eu vitae cursus auctor laoreet fermentum.</p>
+        <footer className="font-[Poppins] bg-slate-900 dark:bg-slate-950 transition-colors duration-500">
+            <div className="max-w-7xl mx-auto px-6 sm:px-10 py-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
+                    {/* Brand Column */}
+                    <div className="lg:col-span-4">
+                        <Link to="/" className="inline-flex items-center gap-2 group mb-6">
+                            <span className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-cyan-500 to-teal-500 rounded-xl text-white font-bold text-xl shadow-lg shadow-cyan-500/25 group-hover:shadow-cyan-500/40 transition-all duration-300 group-hover:scale-105">D</span>
+                            <span className="text-xl font-bold text-white">Delectus</span>
+                        </Link>
+                        <p className="text-slate-400 leading-relaxed mb-8 max-w-sm">
+                            Transform your digital presence with data-driven strategies that deliver measurable results. We help businesses scale through innovative marketing solutions.
+                        </p>
 
-                        <div className="flex gap-2 mx-auto lg:mx-0 mb-10 lg:mb-0">
-                            {/* <Icon icon="lineicons:facebook-fill" width="24" height="24"></Icon> */}
-                            <span className={`bg-[#262626] hover:scale-110 p-2 text-white rounded-lg`}><Icon icon="line-md:twitter-x" width="24" height="24"></Icon></span>
-                            <span className={`bg-[#1d4ed8] hover:scale-110 p-2 text-white rounded-lg`}><Icon icon="line-md:facebook" width="24" height="24"></Icon></span>
-                            <span className={`insta-gradient hover:scale-110 p-2 text-white rounded-lg`}><Icon icon="line-md:instagram" width="24" height="24"></Icon></span>
+                        {/* Social Links */}
+                        <div className="flex gap-3">
+                            {socials.map((social, i) => (
+                                <a key={i} href={social.link} aria-label={social.label} className={`w-10 h-10 flex items-center justify-center bg-slate-800 rounded-xl text-slate-400 hover:text-white ${social.color} transition-all duration-300 hover:scale-110`} >
+                                    <Icon icon={social.icon} width="20" height="20" />
+                                </a>
+                            ))}
                         </div>
                     </div>
 
-                    <div className="text-center lg:text-end">
-                        <h1 className="text-2xl mb-4">Services</h1>
-                        <ul className='text-slate-500'>
-                            <li className='my-1'><Link to="" className={`${dark ? 'hover:text-white' : 'hover:text-black'}`}>SEO</Link></li>
-                            <li className='my-1'><Link to="" className={`${dark ? 'hover:text-white' : 'hover:text-black'}`}>Digital Marketing</Link></li>
-                            <li className='my-1'><Link to="" className={`${dark ? 'hover:text-white' : 'hover:text-black'}`}>Digital Strategy</Link></li>
-                            <li className='my-1'><Link to="" className={`${dark ? 'hover:text-white' : 'hover:text-black'}`}>CRO</Link></li>
-                            <li className='my-1'><Link to="" className={`${dark ? 'hover:text-white' : 'hover:text-black'}`}>Analytics</Link></li>
+                    {/* Services Column */}
+                    <div className="lg:col-span-2">
+                        <h4 className="text-white font-semibold mb-6 flex items-center gap-2">
+                            <span className="w-2 h-2 bg-cyan-500 rounded-full"></span> Services
+                        </h4>
+                        <ul className="space-y-3">
+                            {services.map((service, i) => (
+                                <li key={i}>
+                                    <Link to={service.link} className="text-slate-400 hover:text-cyan-400 transition-colors duration-300 flex items-center gap-2 group" >
+                                        <Icon icon="mdi:chevron-right" className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" width="16" height="16" /> {service.name}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
-                    <div className="text-center lg:text-end">
-                        <h1 className="text-2xl mb-4">Agency</h1>
-                        <ul className='text-slate-500'>
-                            <li className='my-1'><Link to="" className={`${dark ? 'hover:text-white' : 'hover:text-black'}`}>About Us</Link></li>
-                            <li className='my-1'><Link to="" className={`${dark ? 'hover:text-white' : 'hover:text-black'}`}>Our Team</Link></li>
-                            <li className='my-1'><Link to="" className={`${dark ? 'hover:text-white' : 'hover:text-black'}`}>Careers</Link></li>
-                            <li className='my-1'><Link to="" className={`${dark ? 'hover:text-white' : 'hover:text-black'}`}>News & Blog</Link></li>
-                            <li className='my-1'><Link to="" className={`${dark ? 'hover:text-white' : 'hover:text-black'}`}>Contact Us</Link></li>
+                    {/* Company Column */}
+                    <div className="lg:col-span-2">
+                        <h4 className="text-white font-semibold mb-6 flex items-center gap-2">
+                            <span className="w-2 h-2 bg-cyan-500 rounded-full"></span>
+                            Company
+                        </h4>
+                        <ul className="space-y-3">
+                            {company.map((item, i) => (
+                                <li key={i}>
+                                    <Link  to={item.link} className="text-slate-400 hover:text-cyan-400 transition-colors duration-300 flex items-center gap-2 group" >
+                                        <Icon icon="mdi:chevron-right" className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" width="16" height="16" /> {item.name}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
-                    <div className="text-center lg:text-end">
-                        <h1 className="text-2xl mb-4">Contact Info</h1>
-                        <ul className='text-slate-500'>
-                            <li className='my-1'>123 Demo St,</li>
-                            <li className="my-1">Lakeland,</li>
-                            <li className="my-1">United States.</li>
-                            <li className='my-1'><Link to="" className={`${dark ? 'hover:text-white' : 'hover:text-black'}`}>mail@example.com</Link></li>
-                            <li className='my-1'><Link to="" className={`${dark ? 'hover:text-white' : 'hover:text-black'} transition-al`}l>+1 123-456-7890</Link></li>
+                    {/* Contact Column */}
+                    <div className="lg:col-span-4">
+                        <h4 className="text-white font-semibold mb-6 flex items-center gap-2">
+                            <span className="w-2 h-2 bg-cyan-500 rounded-full"></span> Contact Info
+                        </h4>
+                        <ul className="space-y-4">
+                            <li className="flex items-start gap-4">
+                                <span className="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-slate-800 rounded-xl text-cyan-500">
+                                    <Icon icon="mdi:map-marker" width="20" height="20" />
+                                </span>
+                                <div className="text-slate-400">
+                                    <p>123 Demo St, Lakeland,</p>
+                                    <p>FL 45678, United States</p>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="mailto:hello@delectus.com" className="flex items-center gap-4 group">
+                                    <span className="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-slate-800 rounded-xl text-cyan-500 group-hover:bg-cyan-500 group-hover:text-white transition-all duration-300">
+                                        <Icon icon="mdi:email" width="20" height="20" />
+                                    </span>
+                                    <span className="text-slate-400 group-hover:text-cyan-400 transition-colors duration-300">
+                                        hello@delectus.com
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tel:+11234567890" className="flex items-center gap-4 group">
+                                    <span className="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-slate-800 rounded-xl text-cyan-500 group-hover:bg-cyan-500 group-hover:text-white transition-all duration-300">
+                                        <Icon icon="mdi:phone" width="20" height="20" />
+                                    </span>
+                                    <span className="text-slate-400 group-hover:text-cyan-400 transition-colors duration-300">
+                                        +1 123-456-7890
+                                    </span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
-                <p className="mt-20 text-slate-500 text-sm text-center">© 2024 Digital Marketing Agency | Powered by Digital Marketing Agency</p>
             </div>
 
-        </footer>
-    )
-}
+            {/* Bottom Bar */}
+            <div className="border-t border-slate-800">
+                <div className="max-w-7xl mx-auto px-6 sm:px-10 py-6">
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                        <p className="text-slate-500 text-sm text-center md:text-left">© {currentYear} Delectus. All rights reserved.</p>
+                        <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
+                            <Link to="#" className="text-slate-500 hover:text-cyan-400 transition-colors duration-300">Privacy Policy</Link>
+                            <Link to="#" className="text-slate-500 hover:text-cyan-400 transition-colors duration-300">Terms of Service</Link>
+                            <Link to="#" className="text-slate-500 hover:text-cyan-400 transition-colors duration-300">Cookie Policy</Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-export default Footer
+            {/* Decorative Gradient */}
+            {/* <div className="h-1 bg-gradient-to-r from-cyan-500 via-teal-500 to-cyan-500"></div> */}
+        </footer>
+    );
+};
+
+export default Footer;
